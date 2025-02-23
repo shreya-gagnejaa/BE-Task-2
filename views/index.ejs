@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>To-Do List</h1>
+  
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" onclick="toggleTheme()">Switch to Dark Mode</button>
+
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li>
+        <a href="/task?id=<%= task.id %>"><%= task.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+
+  <h2>Add a new task</h2>
+  <form action="/add-task" method="POST">
+    <input type="text" name="title" placeholder="Task title" required><br>
+    <textarea name="description" placeholder="Task description" required></textarea><br>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <script src="/script.js"></script>
+</body>
+</html>
